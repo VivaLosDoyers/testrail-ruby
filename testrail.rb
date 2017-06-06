@@ -16,6 +16,7 @@ module TestRail
     @user = ''
     @password = ''
 
+    include Endpoints
     attr_accessor :user
     attr_accessor :password
 
