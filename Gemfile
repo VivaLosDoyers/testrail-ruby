@@ -1,0 +1,10 @@
+source 'https://rubygems.org'
+
+  gem 'rake'
+  gem 'rspec'
+  gem 'pry'
+  gem 'rdoc'
+  gem 'webmock'
+  gem 'simplecov'
+  gem 'httparty'
+  gem 'activesupport'
