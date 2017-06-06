@@ -8,3 +8,8 @@ source 'https://rubygems.org'
   gem 'simplecov'
   gem 'httparty'
   gem 'activesupport'
+
+  gem 'net/http'
+  gem 'net/https'
+  gem 'uri'
+  gem 'json'

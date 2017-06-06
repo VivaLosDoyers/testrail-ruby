@@ -1,18 +1,14 @@
-#
-# TestRail API binding for Ruby (API v2, available since TestRail 3.0)
-#
-# Learn more:
-#
-# http://docs.gurock.com/testrail-api2/start
-# http://docs.gurock.com/testrail-api2/accessing
-#
-# Copyright Gurock Software GmbH. See license.md for details.
-#
-
+require_relative 'lib/endpoints'
 require 'net/http'
 require 'net/https'
 require 'uri'
 require 'json'
+
+# USAGE:
+# @client = TestRail::APIClient.new('YourBaseURLHere')
+# @client.user = 'UserName'
+# @client.password = 'Password'
+
 
 module TestRail
   class APIClient
@@ -30,34 +26,12 @@ module TestRail
       @url = base_url + 'index.php?/api/v2/'
     end
 
-    #
-    # Send Get
-    #
-    # Issues a GET request (read) against the API and returns the result
-    # (as Ruby hash).
-    #
-    # Arguments:
-    #
-    # uri                 The API method to call including parameters
-    #                     (e.g. get_case/1)
-    #
-    def send_get(uri)
-      _send_request('GET', uri, nil)
+
+    def send_get(uri, data)
+      _send_request('GET', uri, data)
     end
 
-    #
-    # Send POST
-    #
-    # Issues a POST request (write) against the API and returns the result
-    # (as Ruby hash).
-    #
-    # Arguments:
-    #
-    # uri                 The API method to call including parameters
-    #                     (e.g. add_case/1)
-    # data                The data to submit as part of the request (as
-    #                     Ruby hash, strings must be UTF-8 encoded)
-    #
+
     def send_post(uri, data)
       _send_request('POST', uri, data)
     end
