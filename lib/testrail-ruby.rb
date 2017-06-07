@@ -1,4 +1,4 @@
-require "testrail/version"
+require_relative "version"
 require_relative 'endpoints'
 require 'net/http'
 require 'net/https'
