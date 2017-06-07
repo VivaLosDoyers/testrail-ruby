@@ -7,14 +7,13 @@ require 'testrail/version'
 Gem::Specification.new do |s|
   s.name             = "testrail"
   s.version          = Testrail::VERSION
-  s.authors          = ["Kristine Robison"]
-  s.summary          = "A Ruby client library for TestRail"
+  s.authors          = ["Frances Morales"]
+  s.summary          = "Client wrapper in Ruby for TestRail API (v2)"
   s.description      = """
-    A Ruby client that tries to match TestRail's API one-to-one, while still
-    providing an idiomatic interface.
+    A Ruby client wrapper for the TestRail API (v2)
   """
-  s.email            = "krobison@gmail.com"
-  s.homepage         = "http://github.com/kris-at-tout/testrail"
+  s.email            = "fmorales@francesmorales.com"
+  s.homepage         = "https://github.com/fmorales/TestRail-Ruby"
   s.licenses         = ["MIT"]
   s.require_paths    = ["lib"]
 
