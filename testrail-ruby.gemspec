@@ -5,7 +5,7 @@ require 'testrail/version'
 
 
 Gem::Specification.new do |s|
-  s.name             = "testrail"
+  s.name             = "testrail-ruby"
   s.version          = Testrail::VERSION
   s.authors          = ["Frances Morales"]
   s.summary          = "Client wrapper in Ruby for TestRail API (v2)"
