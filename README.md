@@ -21,8 +21,8 @@ Or install it yourself as:
 
 
 ``` ruby
-#require_relative '../testrail-ruby-v2/testrail'
-require 'testrail-ruby-v2'
+#require_relative '../testrail-ruby/lib/testrail/testrail-ruby'
+require 'testrail-ruby'
 
 client = TestRail::APIClient.new('https://YourTestrailURL')
 client.user = 'YourUserName'
