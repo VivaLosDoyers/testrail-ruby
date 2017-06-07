@@ -1,4 +1,4 @@
-require_relative 'lib/endpoints'
+require_relative 'endpoints'
 require 'net/http'
 require 'net/https'
 require 'uri'

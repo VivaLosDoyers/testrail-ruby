@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-  gem 'rake'
-  gem 'json'
+# Specify your gem's dependencies in testrail-ruby.gemspec
+gemspec
