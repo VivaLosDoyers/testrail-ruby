@@ -1,4 +1,4 @@
-require_relative "version"
+require_relative 'version'
 require_relative 'endpoints'
 require 'net/http'
 require 'net/https'
@@ -9,7 +9,6 @@ require 'json'
 # @client = TestRail::APIClient.new('YourBaseURLHere')
 # @client.user = 'UserName'
 # @client.password = 'Password'
-
 
 module TestRail
   class APIClient
@@ -22,23 +21,20 @@ module TestRail
     attr_accessor :password
 
     def initialize(base_url)
-      if !base_url.match(/\/$/)
-        base_url += '/'
-      end
+      base_url += '/' unless base_url =~ /\/$/
       @url = base_url + 'index.php?/api/v2/'
     end
-
 
     def send_get(uri, data)
       _send_request('GET', uri, data)
     end
-
 
     def send_post(uri, data)
       _send_request('POST', uri, data)
     end
 
     private
+
     def _send_request(method, uri, data)
       url = URI.parse(@url + uri)
       if method == 'POST'
@@ -57,20 +53,20 @@ module TestRail
       end
       response = conn.request(request)
 
-      if response.body && !response.body.empty?
-        result = JSON.parse(response.body)
-      else
-        result = {}
-      end
+      result = if response.body && !response.body.empty?
+                 JSON.parse(response.body)
+               else
+                 {}
+               end
 
       if response.code != '200'
-        if result && result.key?('error')
-          error = '"' + result['error'] + '"'
-        else
-          error = 'No additional error message received'
-        end
-        raise APIError.new('TestRail API returned HTTP %s (%s)' %
-          [response.code, error])
+        error = if result && result.key?('error')
+                  '"' + result['error'] + '"'
+                else
+                  'No additional error message received'
+                end
+        raise APIError, 'TestRail API returned HTTP %s (%s)' %
+                        [response.code, error]
       end
 
       result

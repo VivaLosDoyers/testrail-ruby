@@ -10,6 +10,7 @@ module Testrail
     end
 
     private
+
     def key
       '&key=' + String(Testrail.config.api_key)
     end

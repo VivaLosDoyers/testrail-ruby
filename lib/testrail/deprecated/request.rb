@@ -31,12 +31,12 @@ module Testrail
         log_error error, "Timeout connecting to #{method.to_s.upcase} #{url}"
         raise error
       rescue Exception => error
-        log_error error, "Unexpected exception intercepted calling TestRail"
+        log_error error, 'Unexpected exception intercepted calling TestRail'
         raise error
       end
       response
     end
-    
+
     def self.log_error(error, message)
       unless Testrail.logger.nil?
         Testrail.logger.error message

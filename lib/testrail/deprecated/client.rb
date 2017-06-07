@@ -1,6 +1,5 @@
 module Testrail
   class Client
-
     attr_reader :request
 
     def initialize
@@ -131,12 +130,11 @@ module Testrail
       request.get('get_projects', opts)
     end
 
-
     # COMMANDS.each do |method_name|
     #   define_method method_name
     # end
 
-    COMMANDS = %w[add_result
+    COMMANDS = %w(add_result
                   add_result_for_case
                   get_test
                   get_tests
@@ -164,6 +162,6 @@ module Testrail
                   get_milestones
                   add_milestone
                   get_project
-                  get_projects]
+                  get_projects).freeze
   end
 end

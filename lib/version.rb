@@ -1,3 +1,3 @@
-module Testrail  
-  VERSION = '0.0.3'
+module Testrail
+  VERSION = '0.0.3'.freeze
 end

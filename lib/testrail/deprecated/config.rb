@@ -2,8 +2,7 @@ require 'logger'
 require 'active_support/configurable'
 
 module Testrail
-
-  def self.configure(&block)
+  def self.configure
     @config = Config.new
     yield @config if block_given?
   end
@@ -22,10 +21,10 @@ module Testrail
 
     def default_config
       self.headers = {
-        "Accept" => "application/json"
+        'Accept' => 'application/json'
       }
-      self.server = "https://example.testrail.com"
-      self.api_path = "/index.php?/miniapi/"
+      self.server = 'https://example.testrail.com'
+      self.api_path = '/index.php?/miniapi/'
       self.api_key = nil
       self.logger = Logger.new STDOUT
     end

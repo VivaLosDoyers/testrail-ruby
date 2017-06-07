@@ -5,7 +5,7 @@ module Testrail
   class Response
     attr_reader :http_response
     attr_accessor :success, :payload, :error
-    
+
     extend Forwardable
 
     def_delegators :http_response, :request, :response, :code
@@ -17,6 +17,7 @@ module Testrail
     end
 
     private
+
     def parse_payload
       result_body = JSON.parse(http_response.body)
       @success = result_body.key?('result') ? result_body.delete('result') : nil
